@@ -1,0 +1,30 @@
+<div fxFlex="380px" class="table">
+  <table>
+    <mat-table [dataSource]="journeysData" class="mat-elevation-z0">
+      <ng-container matColumnDef="index">
+        <mat-header-cell fxFlex="60px" *matHeaderCellDef> No. </mat-header-cell>
+        <mat-cell fxFlex="60px" *matCellDef="let journey; let i = index;">{{i+1}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="date">
+        <mat-header-cell fxFlex="160px" *matHeaderCellDef> Date </mat-header-cell>
+        <mat-cell fxFlex="160px" *matCellDef="let journey"> {{journey.date}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="startTime">
+        <mat-header-cell fxFlex="80px" *matHeaderCellDef> Start Time </mat-header-cell>
+        <mat-cell fxFlex="80px" *matCellDef="let journey"> {{journey.startTime}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="endTime">
+        <mat-header-cell fxFlex="80px" *matHeaderCellDef> End Time </mat-header-cell>
+        <mat-cell fxFlex="80px" *matCellDef="let journey"> {{journey.endTime}} </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns; let i = index" [ngClass]="{'highlight': selectedRowIndex == row.id}" (click)="updateMap(row.id); highlight(row)"></mat-row>
+    </mat-table>
+  </table>
+
+</div>
+
+<div fxFlexOffset="20px">
+  <div class="map" leaflet (leafletMapReady)="onMapReady($event)" [leafletOptions]="options" [leafletLayersControl]="layersControl" [leafletFitBounds]="fitBounds" [leafletLayers]="layers">
+  </div>
+</div>

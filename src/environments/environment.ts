@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  urlBase: 'https://routes.misprojects.org/',
+  mapbox_access_token: 'pk.eyJ1IjoiYWRyaWFuZ3JhZGluYXIiLCJhIjoiY2puNXFpamtuM3ZvNDNrbzg2Mmh2a3IxciJ9.bg8ulFqxWpyhzxXfXc7iXw'
 };
 
 /*

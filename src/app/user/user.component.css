@@ -1,0 +1,19 @@
+.map {
+  height: calc(100vh - 70px);
+  width: calc(100vw - 380px - 20px);
+}
+
+.highlight {
+  background-color: cornflowerblue;
+}
+
+mat-table {
+  height: calc(100vh - 70px);
+  overflow: auto;
+}
+
+mat-header-row {
+  position: sticky;
+  top: -.5px;
+  z-index: 100;
+}

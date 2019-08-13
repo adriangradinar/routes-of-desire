@@ -1,0 +1,18 @@
+<table>
+  <mat-table [dataSource]="usersData" class="mat-elevation-z4">
+    <ng-container matColumnDef="index">
+      <mat-header-cell fxFlex="100px" *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell fxFlex="100px" *matCellDef="let user; let i = index;">{{i+1}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <mat-header-cell fxFlex *matHeaderCellDef> Email </mat-header-cell>
+      <mat-cell fxFlex *matCellDef="let user"> {{user.email}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="total">
+      <mat-header-cell fxFlex="100px" *matHeaderCellDef> Total </mat-header-cell>
+      <mat-cell fxFlex="100px" *matCellDef="let user"> {{user.total}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns" [routerLink]="['/user', row.id]" (click)="saveUserID(row.id)"></mat-row>
+  </mat-table>
+</table>
